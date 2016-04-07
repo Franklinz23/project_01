@@ -1,0 +1,29 @@
+body{
+background-image: linear-gradient(#bfbfbf, #FF8C00);
+}
+
+.header{
+  background-image: url(/images/giving-back.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #FF8C00;
+  display: block;
+
+
+}
+
+.header .logo{
+height: 350px;
+display: block;
+}
+
+.logo h1{
+  text-align: center;
+  margin-left: 400px;
+}
+
+.logo h2{
+  text-align: left;
+  margin-left: 30px;
+  margin-top: 200px;
+}
