@@ -2,7 +2,7 @@ body{
 background-image: linear-gradient(#FF8C00, #bfbfbf);
 }
 
-.header{
+.jumbotron{
   background-image: url(/images/giving-back.jpg);
   background-size: cover;
   background-repeat: no-repeat;

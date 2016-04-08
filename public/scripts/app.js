@@ -89,9 +89,8 @@ function errorTeacherPost(err) {
 //DELETE HANDLERS
 
 function deleteSuccess(json) {
-  var teacher = json;
   console.log(json);
-  $('.teacher').attr('data-id').empty();
+  $('#onePost').remove();
 
 
 }
