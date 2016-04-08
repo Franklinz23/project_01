@@ -51,6 +51,17 @@ app.post('/api/teachers', function (req, res) {
   console.log("im posting");
   console.log(req.body);
 
+  var newPost = req.body;
+
+  database.Teacher.create(newPost, function (err, post){
+    if(err) {
+      console.log("you shall not post", err);
+    }
+    console.log(post);
+
+    res.json(post);
+  });
+
 });
 
 
