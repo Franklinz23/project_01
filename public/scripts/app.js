@@ -14,7 +14,14 @@ $(document).ready(function() {
 
   $('#singleButton').on('submit', function (e){
     e.preventDefault();
-    console.log("submitted");
+    $.ajax({
+      method: 'POST',
+      url: '/api/teachers',
+      data: $(this).serialize(),
+      success: newTeacherPost,
+      error: console.log("you shall not post")
+
+    });
 
   });
 
@@ -30,6 +37,10 @@ $(document).ready(function() {
 //
 //
 // }
+
+function newTeacherPost(newPost){
+  console.log("submitted: ", newPost);
+}
 
 function onSuccess(json) {
   console.log("YAY!");

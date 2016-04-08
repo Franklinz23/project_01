@@ -52,6 +52,15 @@
 
               <!-- Text input-->
               <div class="form-group">
+                <label class="col-md-4 control-label" for="name">Leaders Name</label>
+                <div class="col-md-4">
+                <input id="name" name="name" type="text" placeholder="" class="form-control input-md" required="">
+
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
                 <label class="col-md-4 control-label" for="schoolName">School Name</label>
                 <div class="col-md-4">
                 <input id="schoolName" name="schoolName" type="text" placeholder="" class="form-control input-md" required="">
@@ -119,9 +128,80 @@
            </div>
          </div>
 
+         <!-- naming 'leaders' to avoid multiple "teacher" name confusion -->
+         <!-- this is all the teachers tho -->
          <div id='leaders'>
-         </div>
 
+           <!-- handlebar this thang -->
+           <script id="leader-template" type="text/x-handlebars-template">
+
+             <!-- start one teacher post -->
+           <div class="row teacher">
+             <div class="col-md-10 col-md-offset-1">
+               <div class="panel panel-default">
+                 <div class="panel-body">
+
+                   <!-- start of the attributes -->
+
+                  <div class="row">
+                     <div class="col-md-9 col-xs-12">
+                       <ul class="list-group">
+
+                         <li class="list-group-item">
+                           <h4 class="inline-header">Leaders Name:</h4>
+                           <span class="name">{{teacher.name}}</span>
+                         </li>
+
+                         <li class="list-group-item">
+                           <h4 class="inline-header">Leaders Name:</h4>
+                           <span class="name">{{teacher.name}}</span>
+                         </li>
+
+                         <li class="list-group-item">
+                           <h4 class="inline-header">School Name:</h4>
+                           <span class="name">{{teacher.schoolName}}</span>
+                         </li>
+
+                         <li class="list-group-item">
+                           <h4 class="inline-header">Location:</h4>
+                           <span class="name">{{teacher.location}}</span>
+                         </li>
+
+                         <li class="list-group-item">
+                           <h4 class="inline-header">Needs:</h4>
+                           <span class="name">{{teacher.needs}}</span>
+                         </li>
+
+                         <li class="list-group-item">
+                           <h4 class="inline-header">Deadline:</h4>
+                           <span class="name">{{teacher.deadline}}</span>
+                         </li>
+
+                         <li class="list-group-item">
+                           <h4 class="inline-header">Description:</h4>
+                           <span class="name">{{teacher.description}}</span>
+                         </li>
+
+                         <li class="list-group-item">
+                           <h4 class="inline-header">Donor:</h4>
+                           <span class="name">Donor</span>
+                         </li>
+
+                       </ul>
+                     </div>
+                   </div>
+                   <!-- end of attributes -->
+
+                 </div>
+               </div>
+             </div>
+           </div>
+           <!-- end of one post -->
+         </script>
+
+
+         </div>
+         <!-- end of leaders -->
 
 
 
