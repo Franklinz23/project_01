@@ -34,13 +34,19 @@ $(document).ready(function() {
 
   $('#leaders').on('click', '#deleteButton', function() {
     console.log($(this).attr('data-id'));
-    $.ajax({
-      method: 'DELETE',
-      url: '/api/teachers/'+$(this).attr('data-id'),
-      success: deleteSuccess,
-      error:  deleteError
+    var youSure = confirm("Are you sure you want to delete?");
 
-    });
+    if(youSure) {
+
+      $.ajax({
+        method: 'DELETE',
+        url: '/api/teachers/'+$('.teacher').attr('data-id'),
+        success: deleteSuccess,
+        error:  deleteError
+
+      });
+    }
+
   });
 
 
@@ -85,6 +91,8 @@ function errorTeacherPost(err) {
 function deleteSuccess(json) {
   var teacher = json;
   console.log(json);
+  $('.teacher').attr('data-id').empty();
+
 
 }
 
