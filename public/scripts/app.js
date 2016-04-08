@@ -91,6 +91,7 @@ function errorTeacherPost(err) {
 function deleteSuccess(json) {
   console.log(json);
   $('#onePost').remove();
+  $('#onePost').prepend("<h3>Your Post has been DELETED</h3>");
 
 
 }
