@@ -10,7 +10,7 @@ $(document).ready(function() {
   template = Handlebars.compile(source);
 
 
-  //Get all teachers
+  //GET all teachers
   $.ajax({
     method: "GET",
     url: "api/teachers",
@@ -18,8 +18,8 @@ $(document).ready(function() {
     error: onError
   });
 
-  //ONCE FORM SUBMITTED
-  $('#mih-form').on('submit', function (e){
+  //POST when form is submitted
+  $('#mih-form').on('submit', function(e) {
     e.preventDefault();
     $.ajax({
       method: 'POST',
@@ -47,12 +47,12 @@ function renderTeacher(teachers) {
 }
 
 // NEW POST HANDLERS
-function newTeacherPost(newPost){
+function newTeacherPost(newPost) {
   console.log("submitted: ", newPost);
   renderTeacher(newPost);
 }
 
-function errorTeacherPost(err){
+function errorTeacherPost(err) {
   console.log("you shall not post", err);
 }
 
