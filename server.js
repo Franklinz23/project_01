@@ -47,6 +47,12 @@ app.get('/api/teachers', function (req, res) {
 
 });
 
+app.post('/api/teachers', function (req, res) {
+  console.log("im posting");
+  console.log(req.body);
+
+});
+
 
 
 
