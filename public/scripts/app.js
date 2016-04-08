@@ -1,7 +1,13 @@
 //CLIENT-SIDE JS
 
+var template;
+
 $(document).ready(function() {
   console.log('app.js loaded!');
+
+  //HANDLEBAR STUFFFF
+  var source = $('#leader-template').html();
+  template = Handlebars.compile(source);
 
 
   //Get all teachers
@@ -12,14 +18,15 @@ $(document).ready(function() {
     error: onError
   });
 
-  $('#singleButton').on('submit', function (e){
+  //ONCE FORM SUBMITTED
+  $('#mih-form').on('submit', function (e){
     e.preventDefault();
     $.ajax({
       method: 'POST',
       url: '/api/teachers',
       data: $(this).serialize(),
       success: newTeacherPost,
-      error: console.log("you shall not post")
+      error: errorTeacherPost
 
     });
 
@@ -30,21 +37,32 @@ $(document).ready(function() {
 
 });
 
-// function renderTeacher(teacher) {
-//   console.log('adding fake teachers', teacher);
-//
-//   var teacherHTML = template({});
-//
-//
-// }
+function renderTeacher(teachers) {
+  console.log('adding fake teachers', teachers);
 
-function newTeacherPost(newPost){
-  console.log("submitted: ", newPost);
+  var teacherHTML = template({teacher: teachers});
+
+  $('#leaders').prepend(teacherHTML);
+
 }
 
+// NEW POST HANDLERS
+function newTeacherPost(newPost){
+  console.log("submitted: ", newPost);
+  renderTeacher(newPost);
+}
+
+function errorTeacherPost(err){
+  console.log("you shall not post", err);
+}
+
+// GET ALL TEACHERS HANDLERS
 function onSuccess(json) {
   console.log("YAY!");
   console.log(json);
+  json.forEach(function(post) {
+    renderTeacher(post);
+  });
 }
 
 function onError(err) {
