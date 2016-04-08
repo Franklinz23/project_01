@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var Donor = require('./donor.js');
+
 var TeacherSchema = new Schema({
   name: String,
   schoolName: String,
