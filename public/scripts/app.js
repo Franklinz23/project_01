@@ -33,8 +33,6 @@ $(document).ready(function() {
   });
 
 
-
-
 });
 
 function renderTeacher(teachers) {
