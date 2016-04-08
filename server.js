@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
  **********/
 
 /*
- * HTML Endpoints
+ * --------------HTML Endpoints----------------
  */
 
  app.get('/', function homepage (req, res) {
@@ -31,10 +31,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
  });
 
  /*
-  * API Endpoints
+  * ------------API Endpoints ------------------
   */
 
-//**Get all teachers**
+//**GET ALL teachers**
 app.get('/api/teachers', function (req, res) {
 
   database.Teacher.find(
@@ -47,6 +47,10 @@ app.get('/api/teachers', function (req, res) {
 
 });
 
+//**GET ONE teacher**
+
+
+//**POST a teacher
 app.post('/api/teachers', function (req, res) {
   console.log("im posting");
   console.log(req.body);
@@ -57,11 +61,24 @@ app.post('/api/teachers', function (req, res) {
     if(err) {
       console.log("you shall not post", err);
     }
-    console.log(post);
 
+    console.log(post);
     res.json(post);
   });
 
+});
+
+//DELETE a teacher
+app.delete('/api/teachers/:id', function (req, res) {
+
+  database.Teacher.findOneAndRemove({ _id: req.params.id }, function(err, foundPost) {
+    if(err) {
+      console.log("dont let me go", err);
+    }
+
+    res.json(foundPost);
+
+  });
 });
 
 

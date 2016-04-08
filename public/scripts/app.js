@@ -33,12 +33,20 @@ $(document).ready(function() {
   });
 
   $('#leaders').on('click', '#deleteButton', function() {
-    console.log('you want to delete bruh?');
+    console.log($(this).attr('data-id'));
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/teachers/'+$(this).attr('data-id'),
+      success: deleteSuccess,
+      error:  deleteError
+
+    });
   });
 
 
 });
 
+//Slap it on the page
 function renderTeacher(teachers) {
   console.log('adding fake teachers', teachers);
 
@@ -46,16 +54,6 @@ function renderTeacher(teachers) {
 
   $('#leaders').prepend(teacherHTML);
 
-}
-
-// NEW POST HANDLERS
-function newTeacherPost(newPost) {
-  console.log("submitted: ", newPost);
-  renderTeacher(newPost);
-}
-
-function errorTeacherPost(err) {
-  console.log("you shall not post", err);
 }
 
 // GET ALL TEACHERS HANDLERS
@@ -70,4 +68,26 @@ function onSuccess(json) {
 function onError(err) {
   console.log("FUCK!");
   console.log(err);
+}
+
+// NEW POST HANDLERS
+function newTeacherPost(newPost) {
+  console.log("submitted: ", newPost);
+  renderTeacher(newPost);
+}
+
+function errorTeacherPost(err) {
+  console.log("you shall not post", err);
+}
+
+//DELETE HANDLERS
+
+function deleteSuccess(json) {
+  var teacher = json;
+  console.log(json);
+
+}
+
+function deleteError(err) {
+  console.log('why you wanna go and do that?', err);
 }
