@@ -32,6 +32,10 @@ $(document).ready(function() {
 
   });
 
+  $('#leaders').on('click', '#deleteButton', function() {
+    console.log('you want to delete bruh?');
+  });
+
 
 });
 
