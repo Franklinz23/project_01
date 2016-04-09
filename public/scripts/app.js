@@ -32,22 +32,28 @@ $(document).ready(function() {
 
   });
 
+  //DELETE post
   $('#leaders').on('click', '#deleteButton', function() {
     console.log($(this).attr('data-id'));
-    var youSure = confirm("Are you sure you want to delete?");
+    var youSure = confirm("Are you sure you want to delete your post?");
 
     if(youSure) {
-
       $.ajax({
         method: 'DELETE',
         url: '/api/teachers/'+$('.teacher').attr('data-id'),
         success: deleteSuccess,
         error:  deleteError
-
       });
     }
 
   });
+
+  $('#leaders').on('click', '#mihButton', function() {
+    console.log("you made it happen bro");
+    
+  });
+
+
 
 
 });
