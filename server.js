@@ -48,6 +48,16 @@ app.get('/api/teachers', function (req, res) {
 });
 
 //**GET ONE teacher**
+app.get('/api/teachers/:id', function(req, res) {
+
+  database.Teacher.findById(req.params.id, function(err, foundTeacher) {
+      if(err) {
+        console.log('cant find em', err);
+      }
+      console.log('found em', foundTeacher);
+      res.json(foundTeacher);
+  });
+});
 
 
 //**POST a teacher

@@ -13,10 +13,11 @@ $(document).ready(function() {
   //GET all teachers
   $.ajax({
     method: "GET",
-    url: "api/teachers",
+    url: "/api/teachers",
     success: onSuccess,
     error: onError
   });
+
 
   //POST when form is submitted
   $('#mih-form').on('submit', function(e) {
@@ -34,12 +35,15 @@ $(document).ready(function() {
 
   //DELETE post
   $('#leaders').on('click', '#deleteButton', function() {
+    var teacherId = $(this).parents('.teacher').data('id');
+    console.log('someone wants to delete id=' + teacherId );
+
     var youSure = confirm("Are you sure you want to delete your post?");
 
     if(youSure) {
       $.ajax({
         method: 'DELETE',
-        url: '/api/teachers/'+$('.teacher').attr('data-id'),
+        url: '/api/teachers/'+ teacherId,
         success: deleteSuccess,
         error:  deleteError
       });
@@ -107,13 +111,15 @@ function errorTeacherPost(err) {
 
 //DELETE HANDLERS
 
-function deleteSuccess(json) {
-  console.log(json);
-  $('#onePost').remove();
+function deleteSuccess(data) {
+  console.log(data._id);
+  var id = data._id;
+  console.log('delete' + ':' + id);
+  $('#onePost[data-id=' + id + ']').remove();
   $('#onePost').prepend("<h3>Your Post has been DELETED</h3>");
 
-
 }
+
 
 function deleteError(err) {
   console.log('why you wanna go and do that?', err);
