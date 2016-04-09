@@ -34,7 +34,6 @@ $(document).ready(function() {
 
   //DELETE post
   $('#leaders').on('click', '#deleteButton', function() {
-    console.log($(this).attr('data-id'));
     var youSure = confirm("Are you sure you want to delete your post?");
 
     if(youSure) {
@@ -48,11 +47,25 @@ $(document).ready(function() {
 
   });
 
+  // when the Make it happen (mih) button is clicked, display the modal
   $('#leaders').on('click', '#mihButton', function() {
-    console.log("you made it happen bro");
-    
+    var currentPostID = $(this).closest('.teacher').data('data-id'); // "5665ff1678209c64e51b4e7b"
+    console.log(currentPostID);
+    $('#donorModal').data('data-id', currentPostID);
+    $('#donorModal').modal();  // display the modal!
+    console.log("youre making it happen bro");
   });
 
+  // $('#donorModal').on('click', '#donateButton', function(){
+  //
+  //   $.ajax({
+  //     method: 'POST',
+  //     url: '/api/teachers/'+   :id/donor'
+  //
+  //
+  //   });
+  //
+  // });
 
 
 

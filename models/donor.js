@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var DonorSchema = new Schema({
   name: String,
-  comment: String
+  contact: String
 });
 
 var Donor = mongoose.model('Donor', DonorSchema);

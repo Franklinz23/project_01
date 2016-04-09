@@ -121,9 +121,9 @@
 
        <!-- START where the teacher post will be -->
 
-       <section class="container">
+       <section class="col-offset-12 container">
          <div class="row">
-           <div class="col-md-6">
+           <div class="col-md-12">
              <h2>Community Leaders</h2>
            </div>
          </div>
@@ -137,14 +137,14 @@
 
              <!-- start one teacher post -->
            <div class="row teacher" data-id={{teacher._id}} id="onePost">
-             <div class="col-md-6">
+             <div class="col-md-10">
                <div class="panel panel-default">
                  <div class="panel-body">
 
                    <!-- start of the attributes -->
 
                   <div class="row">
-                     <div class="col-md-10 ">
+                     <div class="col-md-12 ">
                        <ul class="list-group">
 
                          <li class="list-group-item">
@@ -182,8 +182,12 @@
                            <span class="name">Donor</span>
                          </li>
 
-                       </br>
+                       </ul>
+                     </div>
+                   </div>
 
+
+                       <div class='panel-footer'>
                          <div class="row button">
                            <div class="col-md-3">
                              <button id="updateButton" name="updatebutton" class="btn btn-warning">Update</button>
@@ -191,18 +195,16 @@
 
 
                            <div class="col-md-3">
-                             <button id="deleteButton" name="deletebutton" class="btn btn-danger" >Delete</button>
+                             <button id="deleteButton" name="deletebutton" class="btn btn-danger" data-id={{teacher._id}} >Delete</button>
                            </div>
 
                            <div class="col-md-6">
                              <button id="mihButton" name="mihbutton" class="btn btn-success">Make It Happen!</button>
                            </div>
                          </div>
+                       </div>
 
 
-                       </ul>
-                     </div>
-                   </div>
                    <!-- end of attributes -->
 
                  </div>
@@ -216,11 +218,50 @@
 
 
          </div>
+       </section>
          <!-- end of leaders -->
 
+<!-- start of DONOR MODAL -->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="donorModal">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         <h4 class="modal-title">Make it Happen!</h4>
+       </div>
+       <div class="modal-body">
+
+         <fieldset class='form-horizontal'>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="donorName">Donor Name:</label>
+              <div class="col-md-4">
+                <input id="donorName" name="donorName" type="text" placeholder="" class="form-control input-md" required="">
+              </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="contact">Contact Me At:</label>
+              <div class="col-md-4">
+                <input id="contact" name="contact" type="text" placeholder="phone or email" class="form-control input-md">
+              </div>
+            </div>
+          </fieldset>
+
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-danger" data-dismiss="modal">Changed my mind</button>
+         <button type="button" class="btn btn-success" id="donateButton">Donate!</button>
+       </div>
+     </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 
-       </section>
+
+
 
 
 
