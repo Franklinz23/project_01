@@ -53,7 +53,7 @@ $(document).ready(function() {
 
   // when the Make it happen (mih) button is clicked, display the modal
   $('#leaders').on('click', '#mihButton', function() {
-    var currentPostID = $(this).closest('.teacher').data('data-id'); // "5665ff1678209c64e51b4e7b"
+    var currentPostID = $(this).closest('.teacher').data('id');
     console.log(currentPostID);
     $('#donorModal').data('data-id', currentPostID);
     $('#donorModal').modal();  // display the modal!
