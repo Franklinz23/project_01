@@ -133,6 +133,7 @@ function handleNewDonor(e) {
     contact: $donorContact.val()
   };
 
-  var postID = $modal.closest('.teacher').data('id');
+  var postID = $modal.data('id');
+
   console.log('Got a donor:', donor.name, 'and his contact:', donor.contact, 'for post id: ', postID);
 }
