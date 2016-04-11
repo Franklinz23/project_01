@@ -78,7 +78,7 @@ app.post('/api/teachers', function (req, res) {
 
 });
 
-//DELETE a teacher
+//**DELETE a teacher
 app.delete('/api/teachers/:id', function (req, res) {
 
   database.Teacher.findOneAndRemove({ _id: req.params.id }, function(err, foundPost) {
@@ -91,7 +91,7 @@ app.delete('/api/teachers/:id', function (req, res) {
   });
 });
 
-//UPDATE a teacher
+//**UPDATE a teacher
 
 app.put('/api/teachers/:id', function (req, res) {
  console.log('updating post', req.body);
