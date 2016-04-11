@@ -18,8 +18,6 @@ $(document).ready(function() {
     error: onError
   });
 
-  //GEt teacher by ID
-
 
   //POST when form is submitted
   $('#mih-form').on('submit', function(e) {
@@ -128,9 +126,13 @@ function deleteError(err) {
 }
 
 //UPDATE aka PUT HANDLERS
-function updatePost();
+function updatePost(e) {
+  var $postRow = $(this).closest('.teacher');
+  var postID = $postRow.data('id');
+  console.log('edit post: ', postID);
+}
 
-function saveUpdatedPost();
+// function saveUpdatedPost();
 
 
 
