@@ -60,16 +60,9 @@ $(document).ready(function() {
     console.log("youre making it happen bro");
   });
 
-  // $('#donorModal').on('click', '#donateButton', function(){
-  //
-  //   $.ajax({
-  //     method: 'POST',
-  //     url: '/api/teachers/'+   :id/donor'
-  //
-  //
-  //   });
-  //
-  // });
+
+  //when donor clicks the DONATE button
+  $('#donorModal').on('click', '#donateButton', handleDonateClick);
 
 
 
@@ -123,4 +116,11 @@ function deleteSuccess(data) {
 
 function deleteError(err) {
   console.log('why you wanna go and do that?', err);
+}
+
+//NEW DONOR HANDLERS
+
+function handleDonateClick(e) {
+  console.log('DONATE! clicked');
+  
 }
