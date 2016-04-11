@@ -138,6 +138,21 @@ function updatePost(e) {
 
   var teacherName = $postRow.find('span.name').text();
   $postRow.find('span.name').html('<input class="edit-name" value="' + teacherName + '"></input>');
+
+  var schoolName = $postRow.find('span.school-name').text();
+  $postRow.find('span.school-name').html('<input class="edit-school-name" value="' + schoolName + '"></input>');
+
+  var location = $postRow.find('span.location').text();
+  $postRow.find('span.location').html('<input class="edit-location" value="' + location + '"></input>');
+
+  var needs = $postRow.find('span.needs').text();
+  $postRow.find('span.needs').html('<input class="edit-needs" value="' + needs + '"></input>');
+
+  var deadline = $postRow.find('span.deadline').text();
+  $postRow.find('span.deadline').html('<input class="edit-deadline" value="' + deadline + '"></input>');
+
+  var description = $postRow.find('span.description').text();
+  $postRow.find('span.description').html('<input class="edit-description" value="' + description + '"></input>');
 }
 
 // function saveUpdatedPost();
