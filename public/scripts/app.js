@@ -18,6 +18,8 @@ $(document).ready(function() {
     error: onError
   });
 
+  //GEt teacher by ID
+
 
   //POST when form is submitted
   $('#mih-form').on('submit', function(e) {
@@ -55,14 +57,14 @@ $(document).ready(function() {
   $('#leaders').on('click', '#mihButton', function() {
     var currentPostID = $(this).closest('.teacher').data('id');
     console.log(currentPostID);
-    $('#donorModal').data('data-id', currentPostID);
+    $('#donorModal').data('id:', currentPostID);
     $('#donorModal').modal();  // display the modal!
     console.log("youre making it happen bro");
   });
 
 
   //when donor clicks the DONATE button
-  $('#donorModal').on('click', '#donateButton', handleDonateClick);
+  $('#donateButton').on('click', handleNewDonor);
 
 
 
@@ -120,7 +122,17 @@ function deleteError(err) {
 
 //NEW DONOR HANDLERS
 
-function handleDonateClick(e) {
-  console.log('DONATE! clicked');
-  
+function handleNewDonor(e) {
+  e.preventDefault();
+  var $modal = $('#donorModal');
+  var $donorName = $modal.find('#donorName');
+  var $donorContact = $modal.find('#contact');
+
+  var donor = {
+    name: $donorName.val(),
+    contact: $donorContact.val()
+  };
+
+  var postID = $modal.closest('.teacher').data('id');
+  console.log('Got a donor:', donor.name, 'and his contact:', donor.contact, 'for post id: ', postID);
 }
