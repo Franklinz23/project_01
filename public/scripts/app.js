@@ -130,6 +130,14 @@ function updatePost(e) {
   var $postRow = $(this).closest('.teacher');
   var postID = $postRow.data('id');
   console.log('edit post: ', postID);
+
+  //this will show the "save changes" button
+  $postRow.find('#savedUpdateButton').toggleClass('hidden');
+  //hide "update" button
+  $postRow.find('#updateButton').toggleClass('hidden');
+
+  var teacherName = $postRow.find('span.name').text();
+  $postRow.find('span.name').html('<input class="edit-name" value="' + teacherName + '"></input>');
 }
 
 // function saveUpdatedPost();
