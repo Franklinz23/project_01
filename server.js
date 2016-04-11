@@ -91,6 +91,30 @@ app.delete('/api/teachers/:id', function (req, res) {
   });
 });
 
+//UPDATE a teacher
+
+app.put('/api/teachers/:id', function (req, res) {
+ console.log('updating post', req.body);
+ database.Teacher.findById(req.params.id, function(err, foundPost) {
+   if (err) {
+     console.log('PUT aka update server error', err);
+   }
+   foundPost.name = req.body.name;
+   foundPost.schoolName = req.body.schoolName;
+   foundPost.location = req.body.location;
+   foundPost.needs = req.body.needs;
+   foundPost.deadline = req.body.deadline;
+   foundPost.description = req.body.description;
+   foundPost.save(function(err, savedPost) {
+     if (err) {
+       console.log('saving updates failed');
+     }
+     res.json(savedPost);
+   });
+ });
+
+});
+
 
 
 
