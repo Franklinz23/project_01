@@ -23,16 +23,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
  **********/
 
 /*
- * --------------HTML Endpoints----------------
- */
+--------------HTML Endpoints----------------
+*/
 
  app.get('/', function homepage (req, res) {
    res.sendFile(__dirname + '/views/index.html');
  });
 
- /*
-  * ------------API Endpoints ------------------
-  */
+/*
+ ------------API Endpoints ------------------
+*/
 
 //**GET ALL teachers**
 app.get('/api/teachers', function (req, res) {
@@ -46,6 +46,7 @@ app.get('/api/teachers', function (req, res) {
     });
 
 });
+
 
 //**GET ONE teacher**
 app.get('/api/teachers/:id', function(req, res) {
@@ -114,11 +115,6 @@ app.put('/api/teachers/:id', function (req, res) {
  });
 
 });
-
-
-
-
-
 
 /**********
  * SERVER *

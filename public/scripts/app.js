@@ -28,7 +28,6 @@ $(document).ready(function() {
       data: $(this).serialize(),
       success: newTeacherPost,
       error: errorTeacherPost
-
     });
 
   });
@@ -136,6 +135,8 @@ function updatePost(e) {
   //hide "update" button
   $postRow.find('#updateButton').toggleClass('hidden');
 
+  //this will find the current input field, and replace it with
+  //new input field including new class name
   var teacherName = $postRow.find('span.name').text();
   $postRow.find('span.name').html('<input class="edit-name" value="' + teacherName + '"></input>');
 
@@ -155,6 +156,8 @@ function updatePost(e) {
   $postRow.find('span.description').html('<input class="edit-description" value="' + description + '"></input>');
 }
 
+
+//AJAX call with PUT is in here
 function saveUpdatedPost(e) {
   var postID = $(this).parents('.teacher').data('id');
   var $postRow = $('[data-id=' + postID +']');
@@ -168,8 +171,6 @@ function saveUpdatedPost(e) {
     description: $postRow.find('.edit-description').val()
   };
   console.log('Update data for post', postID, 'with new data', data);
-
-//PUUUUUUUUUT
 
   $.ajax({
     method: 'PUT',
@@ -207,8 +208,6 @@ function handleNewDonor(e) {
     name: $donorName.val(),
     contact: $donorContact.val()
   };
-
-  var postID = $modal.data('id');
-
-  console.log('Got a donor:', donor.name, 'and his contact:', donor.contact, 'for post id: ', postID);
+  
+  console.log('Got a donor:', donor.name, 'and his contact:', donor.contact);
 }
