@@ -116,6 +116,17 @@ app.put('/api/teachers/:id', function (req, res) {
 
 });
 
+//**POST a DONOR
+app.post('/api/teachers/:donor_id/donors', function(req, res) {
+  console.log("new donor", req.body);
+  var newDonor = new database.Donor(req.body);
+  newDonor.save(function handleSavedDonor(err, savedDonor) {
+    res.json(savedDonor);
+  });
+
+});
+
+
 /**********
  * SERVER *
  **********/
