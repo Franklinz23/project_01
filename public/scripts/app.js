@@ -127,6 +127,14 @@ function deleteError(err) {
   console.log('why you wanna go and do that?', err);
 }
 
+//UPDATE aka PUT HANDLERS
+function updatePost();
+
+function saveUpdatedPost();
+
+
+
+
 //NEW DONOR HANDLERS
 
 function handleNewDonor(e) {
