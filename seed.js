@@ -29,6 +29,25 @@ var teacherList = [];
     description: 'need bait'
   });
 
+  var donorList = [];
+
+  donorList.push({
+                name: 'Johnny',
+                contact: 'cash@aol.com'
+              });
+  donorList.push({
+                name: "Rick",
+                contact: 'james@hotmail.com'
+              });
+  donorList.push({
+                name: 'Franken',
+                contact: 'stein@sbcglobal.net'
+              });
+
+  teacherList.forEach(function(post) {
+    post.donor = donorList;
+  });
+
   database.Teacher.remove({}, function(err, teachers){
 
   database.Teacher.create(teacherList, function(err, teachers){
