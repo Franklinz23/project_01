@@ -155,7 +155,42 @@ function updatePost(e) {
   $postRow.find('span.description').html('<input class="edit-description" value="' + description + '"></input>');
 }
 
-// function saveUpdatedPost();
+function saveUpdatedPost(e) {
+  var postID = $(this).parents('.teacher').data('id');
+  var $postRow = $('[data-id=' + postID +']');
+
+  var data = {
+    name: $postRow.find('.edit-name').val(),
+    schoolName: $postRow.find('.edit-school-name').val(),
+    location: $postRow.find('.edit-location').val(),
+    needs: $postRow.find('.edit-needs').val(),
+    deadline: $postRow.find('.edit-deadline').val(),
+    description: $postRow.find('.edit-description').val()
+  };
+  console.log('Update data for post', postID, 'with new data', data);
+
+//PUUUUUUUUUT
+
+  $.ajax({
+    method: 'PUT',
+    url: '/api/teachers/' + postID,
+    data: data,
+    success: handlePostUpdate
+  });
+
+}
+
+function handlePostUpdate(data) {
+  console.log('response', data);
+
+  var postID = data._id;
+
+  //remove post from page
+  $('[data-id=' + postID + ']').remove();
+
+  //re-render
+  renderTeacher(data);
+}
 
 
 
