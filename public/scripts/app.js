@@ -203,18 +203,20 @@ function handleNewDonor(e) {
 
   var $donorName = $('#donorName').val();
   var $donorContact = $('#contact').val();
-  var currentPostID = $(this).closest('.teacher').data('id');
+  var currentPostID = $('#onePost').data('id');
+  //$('#donorModal').data('id');
   console.log("saved new donor on post id:", currentPostID);
 
   var donor = {
     name: $donorName,
     contact: $donorContact
   };
+
   console.log('Got a donor:', donor.name, 'and his contact:', donor.contact);
 
   $.ajax({
     method: 'POST',
-    url: '/api/teachers',
+    url: '/api/teachers/' + currentPostID + '/donors',
     data: donor,
     success: newDonorSuccess
   });
@@ -223,5 +225,6 @@ function handleNewDonor(e) {
 
 function newDonorSuccess(newDonor) {
   console.log(newDonor);
-  renderTeacher();
+  $('#donorList').append(newDonor);
+
 }
