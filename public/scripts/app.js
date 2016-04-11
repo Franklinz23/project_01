@@ -200,14 +200,28 @@ function handlePostUpdate(data) {
 
 function handleNewDonor(e) {
   e.preventDefault();
-  var $modal = $('#donorModal');
-  var $donorName = $modal.find('#donorName');
-  var $donorContact = $modal.find('#contact');
+
+  var $donorName = $('#donorName').val();
+  var $donorContact = $('#contact').val();
+  var currentPostID = $(this).closest('.teacher').data('id');
+  console.log("saved new donor on post id:", currentPostID);
 
   var donor = {
-    name: $donorName.val(),
-    contact: $donorContact.val()
+    name: $donorName,
+    contact: $donorContact
   };
-  
   console.log('Got a donor:', donor.name, 'and his contact:', donor.contact);
+
+  $.ajax({
+    method: 'POST',
+    url: '/api/teachers',
+    data: donor,
+    success: newDonorSuccess
+  });
+
+}
+
+function newDonorSuccess(newDonor) {
+  console.log(newDonor);
+  renderTeacher();
 }

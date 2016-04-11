@@ -186,7 +186,11 @@
 
                          <li class="list-group-item">
                            <h4 class="inline-header">Donor:</h4>
-                           <span class="donor">Donor</span>
+                         </br>
+                          {{#each teacher.donor}}
+                           <span class="donor">{{name}} {{contact}}</span>
+                         </br>
+                          {{/each}}
                          </li>
 
                        </ul>
