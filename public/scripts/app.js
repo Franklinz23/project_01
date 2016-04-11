@@ -63,8 +63,15 @@ $(document).ready(function() {
   });
 
 
+  //PUT aka UPDATE a teacher POST
+  $('#leaders').on('click', '#updateButton', updatePost);
+  $('#leaders').on('click', '#savedUpdateButton', saveUpdatedPost);
+
+
   //when donor clicks the DONATE button
   $('#donateButton').on('click', handleNewDonor);
+
+
 
 
 
