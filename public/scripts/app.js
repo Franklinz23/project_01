@@ -115,7 +115,7 @@ function deleteSuccess(data) {
   var id = data._id;
   console.log('delete' + ':' + id);
   $('#onePost[data-id=' + id + ']').remove();
-  $('#onePost').prepend("<h3>Your Post has been DELETED</h3>");
+  $('#onePost').prepend("<h3>Your Post has been DELETED</h3>").hide().fadeOut(800);
 
 }
 
