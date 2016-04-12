@@ -224,7 +224,8 @@ function handleNewDonor(e) {
 }
 
 function newDonorSuccess(newDonor) {
-  console.log(newDonor);
-  $('#donorList').append(newDonor);
+  console.log("heres the new guy", newDonor);
+  $('#donorModal').modal('hide');
+  renderTeacher();
 
 }
