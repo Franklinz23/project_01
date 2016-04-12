@@ -231,6 +231,10 @@ function newDonorSuccess(newDonor) {
   console.log("heres the new guy", newDonor);
   $('#donorModal').modal('hide');
 
+  var source = $('#donor-template').html();
+      template = Handlebars.compile(source);
+
+
   var donorHTML = template({donor: newDonor});
 
   $('#donor').prepend(donorHTML);

@@ -184,49 +184,60 @@
                            <span class="description">{{teacher.description}}</span>
                          </li>
 
-                         <li class="list-group-item id_bearer" >
+                      </ul>
+
+                </div>
+              </div>
+
+              <div class='panel-footer'>
+                <div class="row button">
+                  <div class="col-md-3">
+                    <button id="updateButton" name="updatebutton" class="btn btn-warning">Update</button>
+                    <button id="savedUpdateButton" name="savedUpdateButton" class="btn btn-info hidden">Save Changes</button>
+                  </div>
+
+
+                  <div class="col-md-3">
+                    <button id="deleteButton" name="deletebutton" class="btn btn-danger"  >Delete</button>
+                  </div>
+
+                  <div class="col-md-6">
+                    <button id="mihButton" name="mihbutton" class="btn btn-success" >Make It Happen!</button>
+                  </div>
+                </div>
+              </div>
+
+            </script>
+
+              <!-- end of attributes -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of one post -->
+
+
+                  <script id="donor-template" type="text/x-handlebars-template">
+                    <div id="donorTemplate">
+                      <ul>
+                         <li class="list-group-item donor" >
                            <h4 class="inline-header">Donor(s):</h4>
-                          {{#each teacher.donor}}
+                          {{#each donor}}
                            <span id="donor"><b>{{name}}</b>:  {{contact}}</span>
                          </br>
                           {{/each}}
                          </li>
-
-                       </ul>
-                     </div>
-                   </div>
-
-
-                       <div class='panel-footer'>
-                         <div class="row button">
-                           <div class="col-md-3">
-                             <button id="updateButton" name="updatebutton" class="btn btn-warning">Update</button>
-                             <button id="savedUpdateButton" name="savedUpdateButton" class="btn btn-info hidden">Save Changes</button>
-                           </div>
-
-
-                           <div class="col-md-3">
-                             <button id="deleteButton" name="deletebutton" class="btn btn-danger"  >Delete</button>
-                           </div>
-
-                           <div class="col-md-6">
-                             <button id="mihButton" name="mihbutton" class="btn btn-success" >Make It Happen!</button>
-                           </div>
-                         </div>
-                       </div>
-
-
-                   <!-- end of attributes -->
-
-                 </div>
-               </div>
-             </div>
-           </div>
-           <!-- end of one post -->
+                      </ul>
+                    </div>
+                  </script>
 
 
 
-         </script>
+
+
+
+
 
          </div>
        </section>
