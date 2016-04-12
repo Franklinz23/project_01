@@ -1,13 +1,13 @@
 //CLIENT-SIDE JS
 
-var template;
+
 
 $(document).ready(function() {
   console.log('app.js loaded!');
 
-  //HANDLEBAR STUFFFF
-  // var source = $('#leader-template').html();
-  // template = Handlebars.compile(source);
+  // HANDLEBAR STUFFFF
+  var source = $('#leader-template').html();
+  template = Handlebars.compile(source);
 
 
   //GET all teachers
@@ -76,9 +76,6 @@ $(document).ready(function() {
 
 //Slap the post on the page using Handlebars
 function renderTeacher(teachers) {
-
-  var source = $('#leader-template').html();
-      template = Handlebars.compile(source);
 
   console.log('adding fake teachers', teachers);
 
@@ -231,13 +228,7 @@ function newDonorSuccess(newDonor) {
   console.log("heres the new guy", newDonor);
   $('#donorModal').modal('hide');
 
-  var source = $('#donor-template').html();
-      template = Handlebars.compile(source);
-
-
-  var donorHTML = template({donor: newDonor});
-
-  $('#donor').prepend(donorHTML);
+  $('#donor').append(newDonor);
 
 
 }

@@ -184,10 +184,19 @@
                            <span class="description">{{teacher.description}}</span>
                          </li>
 
+                         <li class="list-group-item" >
+                           <h4 class="inline-header">Donor(s):</h4>
+                          {{#each teacher.donor}}
+                           <span id="donor"><b>{{name}}</b>:  {{contact}}</span>
+                         </br>
+                          {{/each}}
+                         </li>
+
                       </ul>
 
                 </div>
               </div>
+            </script>
 
               <div class='panel-footer'>
                 <div class="row button">
@@ -207,7 +216,6 @@
                 </div>
               </div>
 
-            </script>
 
               <!-- end of attributes -->
 
@@ -216,25 +224,6 @@
         </div>
       </div>
       <!-- end of one post -->
-
-
-                  <script id="donor-template" type="text/x-handlebars-template">
-                    <div id="donorTemplate">
-                      <ul>
-                         <li class="list-group-item donor" >
-                           <h4 class="inline-header">Donor(s):</h4>
-                          {{#each donor}}
-                           <span id="donor"><b>{{name}}</b>:  {{contact}}</span>
-                         </br>
-                          {{/each}}
-                         </li>
-                      </ul>
-                    </div>
-                  </script>
-
-
-
-
 
 
 
