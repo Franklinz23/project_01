@@ -35,3 +35,12 @@ margin-top: 150px;
 h3 {
   color: red;
 }
+
+.row h4{
+  color: black;
+}
+
+.row span{
+  color: #e38537;
+  height: 500px;
+}
