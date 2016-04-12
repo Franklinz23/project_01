@@ -6,8 +6,8 @@ $(document).ready(function() {
   console.log('app.js loaded!');
 
   //HANDLEBAR STUFFFF
-  var source = $('#leader-template').html();
-  template = Handlebars.compile(source);
+  // var source = $('#leader-template').html();
+  // template = Handlebars.compile(source);
 
 
   //GET all teachers
@@ -74,8 +74,12 @@ $(document).ready(function() {
 
 });
 
-//Slap it on the page
+//Slap the post on the page using Handlebars
 function renderTeacher(teachers) {
+
+  var source = $('#leader-template').html();
+      template = Handlebars.compile(source);
+
   console.log('adding fake teachers', teachers);
 
   var teacherHTML = template({teacher: teachers});
@@ -226,6 +230,10 @@ function handleNewDonor(e) {
 function newDonorSuccess(newDonor) {
   console.log("heres the new guy", newDonor);
   $('#donorModal').modal('hide');
-  renderTeacher();
+
+  var donorHTML = template({donor: newDonor});
+
+  $('#donor').prepend(donorHTML);
+
 
 }
