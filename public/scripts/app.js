@@ -74,6 +74,7 @@ $(document).ready(function() {
 
 });
 
+/* TODO: Careful using plural 'teachers' as the paramter, as this would make me thing that you are handling an array of teacher objects, which you aren't. This works perfectly, but be careful with your naming conventions. */
 //Slap the post on the page using Handlebars
 function renderTeacher(teachers) {
 
@@ -95,6 +96,7 @@ function onSuccess(json) {
 }
 
 function onError(err) {
+  /* TODO: Don't use the word FUCK in production code XD -jc */å
   console.log("FUCK!");
   console.log(err);
 }
@@ -126,6 +128,7 @@ function deleteError(err) {
 }
 
 //UPDATE aka PUT HANDLERS
+/* TODO: NICE JOB! This is a nice touch to your site! -jc */
 function updatePost(e) {
   var $postRow = $(this).closest('.teacher');
   var postID = $postRow.data('id');

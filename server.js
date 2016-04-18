@@ -34,6 +34,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
  ------------API Endpoints ------------------
 */
 
+/* TODO: I'm glad you've made all these great endpoints, now I'd love for you to put them in the controllers folder in the teacherController.js and donorController.js files :) -jc */
 //**GET ALL teachers**
 app.get('/api/teachers', function (req, res) {
 
@@ -93,7 +94,10 @@ app.delete('/api/teachers/:id', function (req, res) {
 });
 
 //**UPDATE a teacher
-
+/* TODO: checkout the db.update() function at
+  http://mongoosejs.com/docs/2.7.x/docs/updating-documents.html
+  Your update works perfectly, but we have a function that will take care of a lot of work for you :) -jc
+  */
 app.put('/api/teachers/:id', function (req, res) {
  console.log('updating post', req.body);
  database.Teacher.findById(req.params.id, function(err, foundPost) {
@@ -117,6 +121,7 @@ app.put('/api/teachers/:id', function (req, res) {
 });
 
 //**POST a DONOR
+/* TODO: You've successfully created a donor in your donor database. They aren't being associated with a teacher, though :(.  First you'll need to find a teacher THEN create a donor object to place inside the teacher's donor object -jc */
 app.post('/api/teachers/:donor_id/donors', function(req, res) {
   console.log("new donor", req.body);
   var newDonor = new database.Donor(req.body);
