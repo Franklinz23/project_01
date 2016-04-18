@@ -1,4 +1,4 @@
-# Make It Happen! 
+# Make It Happen!
 ## (project_01)
 
 * The goal of this web app is for a class leader (teacher, coach, instructor, etc) to be able to post a form specifying materials/supplies needed for a fun class project. Sometimes the school cant supply the funds, and thats where the donors come in. A donor will be able to supply what they can, to help students learn and grow.
@@ -31,5 +31,6 @@
 * User will be able to create account to differentiate the class leaders in need and the donors.
 * Link to post on social network
 
-
-
+<!-- TODO:
+  Add a .gitignore file to remove node_modules from the list of files to show and track with git
+  Add a repository url to your git to your package.json file for tracking. -->
